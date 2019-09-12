@@ -13,15 +13,16 @@ python rename_data.py
 python split_data.py
 ```
 
-3.split image
+3. split image
 ```bash
 python split_image.py
 ```
 
-4.tranform xml to json
+4. tranform xml to json
 ```bash
 python xml2json.py
 ```
 
-* NOTE THAT *
-modify the data path of yourself.
+**NOTE THAT**
+
+Modify the data path of yourself.
