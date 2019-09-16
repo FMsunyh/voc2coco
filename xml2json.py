@@ -9,29 +9,32 @@ import xml.etree.ElementTree as ET
  
 START_BOUNDING_BOX_ID = 1
 
+# #pascal class
+# PRE_DEFINE_CATEGORIES = {
+#     'aeroplane'   : 0,
+#     'bicycle'     : 1,
+#     'bird'        : 2,
+#     'boat'        : 3,
+#     'bottle'      : 4,
+#     'bus'         : 5,
+#     'car'         : 6,
+#     'cat'         : 7,
+#     'chair'       : 8,
+#     'cow'         : 9,
+#     'diningtable' : 10,
+#     'dog'         : 11,
+#     'horse'       : 12,
+#     'motorbike'   : 13,
+#     'person'      : 14,
+#     'pottedplant' : 15,
+#     'sheep'       : 16,
+#     'sofa'        : 17,
+#     'train'       : 18,
+#     'tvmonitor'   : 19
+# }
+
 #pascal class
-PRE_DEFINE_CATEGORIES = {
-    'aeroplane'   : 0,
-    'bicycle'     : 1,
-    'bird'        : 2,
-    'boat'        : 3,
-    'bottle'      : 4,
-    'bus'         : 5,
-    'car'         : 6,
-    'cat'         : 7,
-    'chair'       : 8,
-    'cow'         : 9,
-    'diningtable' : 10,
-    'dog'         : 11,
-    'horse'       : 12,
-    'motorbike'   : 13,
-    'person'      : 14,
-    'pottedplant' : 15,
-    'sheep'       : 16,
-    'sofa'        : 17,
-    'train'       : 18,
-    'tvmonitor'   : 19
-}
+PRE_DEFINE_CATEGORIES = {"bej-bejnnbbt-dz-xcnnjrsnnw-46g": 28, "ch-chgzt-dz-sjw-45g": 45, "ch-chgzt-dz-ygw-45g": 44, "df-dfhfb-dz-nyw-168g": 19, "df-dfqkl-dz-shnnqkl-43g": 10, "glg-glgbcbg-hz-hjqklw-48g": 35, "glg-glgbqbg-hz-cmw-55g": 16, "glg-glgbqbg-hz-nnw-60g": 1, "glg-glgbqbg-hz-qklw-60g": 32, "glg-glgllbqbg-hz-lmw-45g": 24, "hly-hlydhp-hz-yw-138g": 12, "hly-hlyqklp-hz-qklw-204g": 46, "hly-hlyqtqkldg-hz-zzqklw-168g": 0, "hly-hlytlmsp-hz-yw-138g": 5, "hly-hlyytdst-dz-fqjw-70g": 40, "hly-hlyytdst-dz-ljnpw-70g": 26, "hn-hnwssgnyl-gz-yw-250ml": 9, "hy-hybfbgz-hz-xcw-200ml": 47, "kbk-kbksp-dz-fqw-60g": 31, "kbk-kbksp-dz-skw-60g": 6, "lj-ljlzkxt-pz-bhw-64g": 42, "mn-mnssr-hz-cmw-250ml": 2, "mn-mnssr-hz-yw-250ml": 22, "mn-zgl-hz-ygw-250ml": 36, "mz-mzxxb-pz-nnw-50g": 30, "mz-mzxxb-pz-qklw-50g": 39, "mzy-mzyglc-pz-czw-450ml": 11, "mzy-mzyglny-pz-blw-450ml": 43, "mzy-mzyglny-pz-mgw-450ml": 4, "nfsq-nfsqjjydyl-pz-nmw-550ml": 20, "nfsq-nfsqsrc-pz-nmw-445ml": 14, "pp-ppfsmb-dz-nxw-400g": 27, "pp-ppfsmb-dz-xcw-400g": 15, "qdpj-qdpj-gz-yw-330ml": 13, "wwsp-wznn-gz-yw-145ml": 23, "xhpj-xhqspj-gz-yw-330ml": 41, "yd-ydwtkxt-hz-rdsgw-32g": 3, "yd-ydwtkxt-pz-blbhw-56g": 18, "yd-ydwtkxt-pz-qsxgw-56g": 33, "yd-ydwtkxt-pz-xcbhw-56g": 37, "yd-ydwtkxt-pz-xnmgw-56g": 8, "yl-ylgldnn-hz-heiguw-250ml": 29, "yl-ylgldnn-hz-hongguw-250ml": 25, "yl-ylqqxetcznn-hz-jgx-125ml": 21, "yl-ylqqxetcznn-hz-qcx-125ml": 17, "yl-ylysr-hz-cmw-250ml": 34, "yl-ylysr-hz-yw-250ml": 38, "ys-zzyspyz-hz-yw-245ml": 7}
  
 def get(root, name):
     vars = root.findall(name)

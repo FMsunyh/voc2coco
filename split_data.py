@@ -35,12 +35,16 @@ if __name__ == '__main__':
     clc(val_dir)
 
     num = len(os.listdir(os.path.join(base_dir,'Annotations')))
+    scale = 4
+    val_num = num // scale
+    test_num = num // scale
+
     total = np.arange(1,num+1)
-    valList = random.sample(range(1, num+1), 500) #val random select
+    valList = random.sample(range(1, num+1), val_num) #val random select
     # print(sorted(valList))
 
-    # move 500 val pics to splited folder
-    for i in range(0,500):
+    # move val_num val pics to splited folder
+    for i in range(0,val_num):
         xmlfile = ("%08d" % (valList[i]))
         file_dir = base_dir + "/Annotations/"+'/'+ xmlfile +'.xml'
         shutil.copy(file_dir,val_dir)
@@ -51,28 +55,28 @@ if __name__ == '__main__':
         if total[i] not in valList:
             total_val.append(total[i])
 
-    testlist_temp = random.sample(range(0, num-500), 1000) #test random select
+    testlist_temp = random.sample(range(0, num-val_num), test_num) #test random select
     # print(sorted(testlist_temp))
     testList = []
-    for k in range(0,1000):
+    for k in range(0,test_num):
         testList.append(total_val[testlist_temp[k]])
     # print(sorted(testList))
 
-    # move 1000 test pics to splited folder
-    for i in range(0,1000):
+    # move test_num test pics to splited folder
+    for i in range(0,test_num):
         xmlfile = ("%08d" % (testList[i]))
         file_dir = base_dir + "/Annotations/"+'/'+ xmlfile +'.xml'
         shutil.copy(file_dir,test_dir)
 
     # take away test ids from total_val ids
     total_val_test = [] # total ids minus val&test ids, ids left stay here
-    for i in range(0,num-500):
+    for i in range(0,num-val_num):
         if total_val[i] not in testList:
             total_val_test.append(total_val[i])
     # print(sorted(total_val_test))
 
     # move lest train pics to splited folder
-    for i in range(0,num-500-1000):
+    for i in range(0,num-val_num-test_num):
         xmlfile = ("%08d" % (total_val_test[i]))
         file_dir = base_dir + "/Annotations/"+'/'+ xmlfile +'.xml'
         shutil.copy(file_dir,train_dir)
