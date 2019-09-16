@@ -1,7 +1,7 @@
 #coding:utf-8
  
 # pip install lxml
- 
+import argparse
 import sys
 import os
 import json
@@ -123,10 +123,18 @@ def convert(xml_dir, json_file):
     json_str = json.dumps(json_dict)
     json_fp.write(json_str)
     json_fp.close()
- 
+
+
+parser = argparse.ArgumentParser(description='Get the data info')
+parser.add_argument('-i', '--input', help='path of data', default='/home/syh/pascal_voc/')
+args = parser.parse_args()
+
 if __name__ == '__main__':
+
+    base_dir = args.input
+
     folder_list= ["train","val","test"]
-    base_dir = "/save-path/data/pascal-voc/" 
+
     for i in range(3):
         folder_name = folder_list[i]
         #xml_dir = base_dir + folder_name + "/"
@@ -136,6 +144,5 @@ if __name__ == '__main__':
         print("deal: ",folder_name)
         print("xml dir: ",xml_dir)
         print("json file: ",json_dir)
-        
         
         convert(xml_dir,json_dir)
